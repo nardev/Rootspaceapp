@@ -1,6 +1,8 @@
-# :pencil:  Rootspace app
+# <img src="https://github.com/nardev/Rootspaceapp/blob/master/web/src/assets/logo.png?raw=true" /> Rootspace app
 
-![Rootspace](https://github.com/Rootspaceapp/Rootspace/main/web/src/assets/logo.png?raw=true)
+![Rootspace](https://github.com/nardev/Rootspaceapp/blob/master/web/src/assets/logo.png?raw=true)
+
+
 
 Rootspace is an innovative and lightweight work management software that offers important features for projects that require online colaboration and task management.  
 <br>
@@ -11,7 +13,7 @@ One of Rootspace's strongest attributes is its user-friendly design, as well as 
 Rootspace provides a centralized repository for all project information, eliminating the need to search for scattered emails containing URLs, files, access tokens, keys, passwords, and file links, allowing everyone to quickly jump into the project without wasting time searching for information.  
 
 <!-- ABOUT THE PROJECT -->
-<h2 id="about-the-project"> :floppy_disk: Rootspace runs with</h2>
+<h2 id="about-the-project"> :computer: Rootspace runs with</h2>
 <br>  
   
 [![My Skills](https://skillicons.dev/icons?i=nodejs,vue,typescript,postgresql,redis,docker)](https://skillicons.dev)  
@@ -62,21 +64,21 @@ $ docker compose -f docker-compose-dev.yml
 ### Debug
 Set `logging: true` in `api/db/db.ts` to see in console all SQL queries sent to PostgreSQL server
 
-### Athors
+### :man_technologist: Athors
 
-* Adi Utama  
-* Aditya Purwa  
-* Adnan Puzic  
-* Aid Arslanagic  
-* Arfan Fudyartanto  
-* Jasmin Ihtijarevic  
-* Januar Fonti  
-* Mirza Eka  
-* Mujo Kodro  
-* Nedim Hadzimahmutovic  
-* Taufan Fadhila  
+* Adi Utama :indonesia:
+* Aditya Purwa :indonesia:
+* Adnan Puzic :bosnia_herzegovina:
+* Aid Arslanagic :bosnia_herzegovina:
+* Arfan Fudyartanto :indonesia:
+* Jasmin Ihtijarevic :bosnia_herzegovina:
+* Januar Fonti :indonesia:
+* Mirza Eka :bosnia_herzegovina:
+* Mujo Kodro :bosnia_herzegovina:
+* Nedim Hadzimahmutovic :bosnia_herzegovina:
+* Taufan Fadhila :indonesia:
 
-### License  
+### :scroll: License  
 ![GitHub](https://img.shields.io/github/license/Rootspaceapp/Rootspace)  
   
 #### API docs
