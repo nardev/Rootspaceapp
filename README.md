@@ -15,7 +15,7 @@ Rootspace provides a centralized repository for all project information, elimina
 [![My Skills](https://skillicons.dev/icons?i=nodejs,vue,typescript,postgresql,redis,docker)](https://skillicons.dev)  
 <br>  
 
-### :zap: Spin Rootspace locally
+## :zap: Spin Rootspace locally
 <br>  
 Just essential containers:
     
