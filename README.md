@@ -1,9 +1,5 @@
 # <img src="https://github.com/nardev/Rootspaceapp/blob/master/web/src/assets/logo.png?raw=true" /> Rootspace app
 
-![Rootspace](https://github.com/nardev/Rootspaceapp/blob/master/web/src/assets/logo.png?raw=true)
-
-
-
 Rootspace is an innovative and lightweight work management software that offers important features for projects that require online colaboration and task management.  
 <br>
 It consists of features such as file-sharing, task boards, document editing, and other powerful integrations. Additionally, we have used this platform as a means of encouraging knowledge-sharing and experimentation with emerging technologies among Clearview LLC's team members.  
@@ -19,7 +15,7 @@ Rootspace provides a centralized repository for all project information, elimina
 [![My Skills](https://skillicons.dev/icons?i=nodejs,vue,typescript,postgresql,redis,docker)](https://skillicons.dev)  
 <br>  
 
-### Spin Rootspace locally
+### :zap: Spin Rootspace locally
 <br>  
 Just essential containers:
     
@@ -45,26 +41,16 @@ $ docker compose -f docker-compose-dev.yml
 
 > Note: You can also run `docker-compose up` or `docker-compose up -d` from `tests` directory to bring up ephemeral testing postgres database.
 
-### Deployment:
+## :cloud: Deployment:
 
   In case you want to activate google login, S3 and Sendgrid integration, provide and set required keys in `api/.env`
 
-  
-### Default System Settings
-  
-* Visit web on your machine's port :80 or port :3000 [http://localhost](http://localhost)
-* Access api through [http://api:3001](http://api:3001)
-* Access Arena at (use user/pass from api/.env file) [http://api:3001/arena](http://api:3001/arena)
-* Access Dozzle to watch container logs in realtime at [http://localhost:9999](http://localhost:9999)
-* Access sent emails with Mailhog on port [http://mailhog:8025](http://mailhog:8025)
-* Connect to Postgresql DB on port :5432
-
 > You can run container-related commands with `infra/cli.sh` script
 
-### Debug
+## Debug
 Set `logging: true` in `api/db/db.ts` to see in console all SQL queries sent to PostgreSQL server
 
-### :man_technologist: Athors
+## :man_technologist: Authors
 
 * Adi Utama :indonesia:
 * Aditya Purwa :indonesia:
@@ -78,10 +64,10 @@ Set `logging: true` in `api/db/db.ts` to see in console all SQL queries sent to 
 * Nedim Hadzimahmutovic :bosnia_herzegovina:
 * Taufan Fadhila :indonesia:
 
-### :scroll: License  
+## :scroll: License  
 ![GitHub](https://img.shields.io/github/license/Rootspaceapp/Rootspace)  
   
-#### API docs
+## API docs
 
 Use Insomnia File `assets/insomnia.json`
 
