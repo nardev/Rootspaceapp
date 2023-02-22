@@ -1,4 +1,4 @@
-# <img src="https://github.com/nardev/Rootspaceapp/blob/master/web/src/assets/logo.png?raw=true" /> Rootspace app
+# <img width="25" src="https://github.com/nardev/Rootspaceapp/blob/master/web/src/assets/logo.png?raw=true" /> Rootspace app
 
 Rootspace is an innovative and lightweight work management software that offers important features for projects that require online colaboration and task management.  
 <br>
@@ -69,11 +69,4 @@ Set `logging: true` in `api/db/db.ts` to see in console all SQL queries sent to 
   
 ## API docs
 
-Use Insomnia File `assets/insomnia.json`
-
-### DB Seeding
-DB Seeder will populate following models: User, Space and Link
-- Edit `POSTGRES` .env to `POSTGRES=postgresql://user:password@localhost:5432/root`
-- Run `cd ./api & yarn seed:run`
-
-
+You can use Insomnia file to test API `assets/insomnia.json`. The API container spins at port `3001` by default.
