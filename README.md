@@ -1,0 +1,91 @@
+# :pencil:  Rootspace app
+
+![Rootspace](https://github.com/Rootspaceapp/Rootspace/main/web/src/assets/logo.png?raw=true)
+
+Rootspace is an innovative and lightweight work management software that offers important features for projects that require online colaboration and task management.  
+<br>
+It consists of features such as file-sharing, task boards, document editing, and other powerful integrations. Additionally, we have used this platform as a means of encouraging knowledge-sharing and experimentation with emerging technologies among Clearview LLC's team members.  
+<br>
+One of Rootspace's strongest attributes is its user-friendly design, as well as its ease of deployment and maintenance. The interface is highly intuitive and user-friendly, making it accessible even to the least experienced team members. It also has the capability to expand its functionality with new features easily.  
+<br>
+Rootspace provides a centralized repository for all project information, eliminating the need to search for scattered emails containing URLs, files, access tokens, keys, passwords, and file links, allowing everyone to quickly jump into the project without wasting time searching for information.  
+
+<!-- ABOUT THE PROJECT -->
+<h2 id="about-the-project"> :floppy_disk: Rootspace runs with</h2>
+<br>  
+  
+[![My Skills](https://skillicons.dev/icons?i=nodejs,vue,typescript,postgresql,redis,docker)](https://skillicons.dev)  
+<br>  
+
+### Spin Rootspace locally
+<br>  
+Just essential containers:
+    
+```bash
+$ docker compose up -d
+````
+  
+  * Navigate your brosers to: [http://localhost:3000](http://localhost:3000)  
+  
+<br>  
+
+If you need Mailhog, Dozzle or Arena caontainers, you can also spin those
+```bash
+$ docker compose -f docker-compose-dev.yml
+```
+  * Access Arena at (use user/pass from api/.env file) http://api:3001/arena
+  * Access Dozzle to watch container logs in realtime at http://localhost:9999
+  * Access sent emails with Mailhog on port http://mailhog:8025
+
+> If required, edit .env files in `/`, `web/`, `api/` folders.
+
+> Quick run of typeorm with script `infra/typeorm.sh + [operation]`  
+
+> Note: You can also run `docker-compose up` or `docker-compose up -d` from `tests` directory to bring up ephemeral testing postgres database.
+
+### Deployment:
+
+  In case you want to activate google login, S3 and Sendgrid integration, provide and set required keys in `api/.env`
+
+  
+### Default System Settings
+  
+* Visit web on your machine's port :80 or port :3000 [http://localhost](http://localhost)
+* Access api through [http://api:3001](http://api:3001)
+* Access Arena at (use user/pass from api/.env file) [http://api:3001/arena](http://api:3001/arena)
+* Access Dozzle to watch container logs in realtime at [http://localhost:9999](http://localhost:9999)
+* Access sent emails with Mailhog on port [http://mailhog:8025](http://mailhog:8025)
+* Connect to Postgresql DB on port :5432
+
+> You can run container-related commands with `infra/cli.sh` script
+
+### Debug
+Set `logging: true` in `api/db/db.ts` to see in console all SQL queries sent to PostgreSQL server
+
+### Athors
+
+* Adi Utama  
+* Aditya Purwa  
+* Adnan Puzic  
+* Aid Arslanagic  
+* Arfan Fudyartanto  
+* Jasmin Ihtijarevic  
+* Januar Fonti  
+* Mirza Eka  
+* Mujo Kodro  
+* Nedim Hadzimahmutovic  
+* Taufan Fadhila  
+
+### License  
+![GitHub](https://img.shields.io/github/license/Rootspaceapp/Rootspace)  
+  
+#### API docs
+
+Use Insomnia File `assets/insomnia.json`
+
+### DB Seeding
+DB Seeder will populate following models: User, Space and Link
+- Edit `POSTGRES` .env to `POSTGRES=postgresql://user:password@localhost:5432/root`
+- Run `cd ./api & yarn seed:run`
+
+

@@ -1,0 +1,12 @@
+{
+  "uploadDir": "/tmp",
+  "domain": "https://rootspace.app",
+  "cron": {
+    "markOverdueTask": {
+      "className": "MarkOverdueTasks",
+      "repeatableOptions": {
+        "cron": "0 0 * * *"
+      }
+    }
+  }
+}

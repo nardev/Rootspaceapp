@@ -1,0 +1,25 @@
+FROM node:16-alpine as base
+WORKDIR /srv
+
+COPY ./infra/api/entrypoint.sh /entrypoint.sh
+ADD ./api .
+
+RUN apk add --update python3 make g++ netcat-openbsd net-tools && \
+    rm -rf /var/cache/apk/* && \
+    export NODE_ENV=development && \
+    echo "node version is: $(nodejs -v)" && \
+    echo "yarn version is: $(yarn -v)" && \
+    echo "Installing packages... $(yarn install --frozen-lockfile --silent)" && \
+    echo "Building... $(yarn build)" && \
+    echo "Installing packages... $(yarn install --frozen-lockfile --silent)"
+
+RUN echo "Installing PM2... $(npm install -g pm2)"
+
+RUN printenv && \
+    echo "node version is: $(nodejs -v)" && \
+    echo "yarn version is: $(yarn -v)"
+
+ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
+
+#CMD ["node", "dist/index.js"]
+CMD ["pm2-runtime", "--raw", "pm2/production_docker.json"]
