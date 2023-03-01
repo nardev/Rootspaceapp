@@ -6,6 +6,7 @@ COPY yarn.lock .
 COPY package.json .
 
 RUN yarn install --frozen-lockfile
+RUN apt-get update && apt-get install rsync
 
 # project files to be added by mounting a volume
 
