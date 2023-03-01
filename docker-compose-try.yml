@@ -1,0 +1,155 @@
+version: "3.3"
+
+services:
+  postgres:
+    image: postgres:12
+    container_name: root_postgres
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100MB"
+        max-file: "3"
+
+  redis:
+    image: redis:6
+    container_name: root_redis
+    networks:
+      - backend
+    volumes:
+      - redis:/data/
+    ports:
+      - "6379:6379"
+    entrypoint: redis-server --appendonly yes
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100MB"
+        max-file: "3"
+
+  api:
+    image: root_backend
+    container_name: root_api
+    build: "./api"
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./api:/opt/project/
+      - /opt/project/node_modules
+    command: sh -c "yarn typeorm migration:run && yarn seed:run:dev && yarn front"
+    networks:
+      - backend
+      - frontend
+    ports:
+      - "3001:3001"
+      - "6000:6000"
+      - "9229:9229"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100MB"
+        max-file: "3"
+
+  y_websocket:
+    image: root_backend
+    container_name: root_y_websocket
+    build: "./api"
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./api:/opt/project/
+      - /opt/project/node_modules
+    command: yarn y-websocket
+    networks:
+      - backend
+    ports:
+      - "6001:6001"
+      - "9232:9232"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100MB"
+        max-file: "3"
+
+  queue_activity:
+    image: root_backend
+    container_name: root_queue_activity
+    build: "./api"
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./api:/opt/project/
+      - /opt/project/node_modules
+    command: yarn queue:process
+    networks:
+      - backend
+    ports:
+      - "9230:9230"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100MB"
+        max-file: "3"
+
+  queue_cron:
+    image: root_backend
+    container_name: root_queue_cron
+    build: "./api"
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./api:/opt/project/
+      - /opt/project/node_modules
+    command: yarn queue:cron
+    networks:
+      - backend
+    ports:
+      - "9231:9231"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100MB"
+        max-file: "3"
+
+  web:
+    image: root_frontend
+    container_name: root_web
+    build: "./web"
+    depends_on:
+      - api
+    volumes:
+      - ./web:/opt/project/
+      - /opt/project/node_modules
+    networks:
+      - frontend
+    ports:
+      - "3000:3000"
+      - "80:3000"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100MB"
+        max-file: "3"
+
+networks:
+  backend:
+  frontend:
+
+
+volumes:
+  postgres:
+  redis:
